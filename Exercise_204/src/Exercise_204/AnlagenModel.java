@@ -5,6 +5,7 @@
  */
 package Exercise_204;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -16,6 +17,14 @@ public class AnlagenModel extends AbstractTableModel{
     private ArrayList<Anlage> list = new ArrayList<>();
     
     private String[] colNames = {"Bezeichnung", "AK", "Inbetriebnahme", "ND", "bish. ND", "Afa bisher", "Wert vor Afa", "Afa d.J.", "BW 31.12."};
+    
+    public double bishND(int index, int jahr)
+    {
+        Anlage an = list.get(index);
+        Double nutzD = an.getNd();
+        Double bishND = an.getInbetrnahme() + nutzD;
+        return bishND;
+    }
     
     @Override
     public int getRowCount() {
